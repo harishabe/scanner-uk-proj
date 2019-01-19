@@ -1,0 +1,60 @@
+<div id="wmsDashboard" class="container-fluid grid-container">
+  
+  <!-- BREADCRUMB -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/dashboard/scanner">{{MESSAGE.OCR_BREADCRUM_FIRST_TITLE}}</a>
+      </li>
+    </ol>
+  </nav>
+  <!-- END BREADCRUMB -->
+
+  <!-- CONFIGURE FIELDS -->
+  <div fxLayout="row" fxLayout="row wrap" style="margin-bottom: 15px;">
+    <div fxFlex.md="100">
+      <mat-card style="padding:1px">
+        <mat-card-title>
+          <span>{{MESSAGE.OCR_DASHBOARD_CONFIGURE_TITLE}}</span>
+          <button mat-icon-button class="more-button" (click)="expand()" aria-label="Toggle menu">
+            <mat-icon matTooltip="Collapse" *ngIf="expandToggle">expand_more</mat-icon>
+            <mat-icon matTooltip="Expand" *ngIf="!expandToggle">expand_less</mat-icon>
+          </button>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content *ngIf="expandToggle">
+          <div class="ocr-scanner-container">
+
+            <mat-form-field>
+              <input matInput placeholder="Name">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Price">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Number">
+            </mat-form-field>
+
+            <input type="file" id="file" multiple (change)="getFileDetails($event)"><br>
+
+            <mat-chip-list>
+              <mat-chip selected *ngFor="let file of ocrFile">
+                <span *ngFor="let data of file">{{data.name}}</span>
+                <mat-icon matChipRemove *ngIf="true">{{icon.cancel}}</mat-icon>
+              </mat-chip>
+            </mat-chip-list> <br>
+
+            <button mat-flat-button color="primary" (click)="uploadFiles()">
+              {{MESSAGE.OCR_DASHBOARD_UPLOAD_SUBMIT}}
+            </button>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+  <!-- END CONFIGURE FIELD -->
+</div>

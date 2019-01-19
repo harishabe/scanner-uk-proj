@@ -1,0 +1,27 @@
+<mat-progress-bar *ngIf="showProgressBar" color="primary" mode="indeterminate"></mat-progress-bar>
+<div id="login" class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-5 login-top">
+      <mat-card>
+        <img class="rounded center" src='./../../assets/img/scanner.png' />
+        <h4 class="logo-title">{{MESSAGE.OCR_TITLE}}</h4>
+        <form class="login-form-container">
+          <mat-form-field>
+            <input matInput type="text" name="username" [(ngModel)]="wmsLoginObj.username" placeholder="Enter Username"
+              required>
+            <span class="material-icons" matPrefix>{{icon.person}} &nbsp;</span>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" name="password" [(ngModel)]="wmsLoginObj.password" placeholder="Enter your
+              password"
+              required>
+            <span class="material-icons" matPrefix>{{icon.lockOpen}} &nbsp;</span>
+          </mat-form-field>
+          <button class="login-mt-10" mat-flat-button color="primary" (click)="login()">{{MESSAGE.OCR_LOGIN}}</button>
+          <button mat-button class="text-center login-mt-10" routerLink="/forget-password">{{MESSAGE.OCR_FORGET_PASSWORD_LINK}}</button>
+          <button mat-button class="text-center" routerLink="/signup">{{MESSAGE.OCR_SIGN_UP_LINK}}</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

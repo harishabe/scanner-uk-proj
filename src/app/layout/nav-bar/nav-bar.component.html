@@ -1,0 +1,78 @@
+<mat-sidenav-container id="nav-bar" class="sidenav-container">
+
+  <!-- BELOW CODE SIDE BAR WITH MENU -->
+  <mat-sidenav #drawer class="sidenav sidebar-box-shadow" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar class="sidenav-header">
+      <img src="./../../../assets/img/scanner.png" width="50px" height="50px" />
+      <span class="title-margin-10">{{MESSAGE.OCR_NAVBAR_TITLE}}</span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-nav-list class="sidebar-list">
+      <div class="user-icon">
+        <img src="../../../assets/img/1.jpg" alt="user" class="rounded-circle user-icon-margin" width="50" />
+        <span href="">Harisha</span>
+      </div>
+      <mat-divider></mat-divider>
+      <a mat-list-item matTooltip="Dashboard" routerLink="/dashboard/scanner">
+        <mat-icon class="material-icons">{{icon.upload}}</mat-icon>
+        <span>{{MESSAGE.OCR_SIDEBAR_UPLOAD_TITLE}}</span>
+      </a>
+      <a mat-list-item matTooltip="Static schema plot" routerLink="/dashboard/reports">
+        <mat-icon class="material-icons">{{icon.table}}</mat-icon>
+        <span>{{MESSAGE.OCR_SIDEBAR_PDF_TITLE}}</span>
+      </a>
+      <a mat-list-item matTooltip="Static schema plot" routerLink="/dashboard/profile">
+        <mat-icon class="material-icons">{{icon.person}}</mat-icon>
+        <span>{{MESSAGE.OCR_SIDEBAR_PROFILE}}</span>
+      </a>
+      <a mat-list-item matTooltip="Static schema plot" routerLink="/dashboard/reports">
+        <mat-icon class="material-icons">{{icon.settings}}</mat-icon>
+        <span>{{MESSAGE.OCR_SIDEBAR_SETTING}}</span>
+      </a>
+      <a mat-list-item matTooltip="Static schema plot" routerLink="/dashboard/reports">
+        <mat-icon class="material-icons">{{icon.exit}}</mat-icon>
+        <span>{{MESSAGE.OCR_SIDEBAR_LOGOUT}}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- END SIDEBAR MENU -->
+
+  <mat-sidenav-content>
+    <mat-toolbar class="navbar-header" color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">
+          <mat-icon class="material-icons">
+            {{icon.menu}}
+          </mat-icon>
+        </mat-icon>
+      </button>
+
+      <div class="space"></div>
+
+      <!-- BELOW CODE FOR LOGOUT -->
+      <button mat-button matTooltip="User profile" [matMenuTriggerFor]="logOut">
+        <mat-icon class="mat-icon material-icons">{{icon.person}}</mat-icon>
+      </button>
+      <mat-menu #logOut="matMenu">
+        <button mat-menu-item style="width: 200px;">
+          <mat-icon class="mat-icon material-icons">{{icon.settings}}</mat-icon>
+          <span>{{MESSAGE.OCR_SIDEBAR_SETTING}}</span>
+        </button>
+        <button mat-menu-item style="width: 200px;">
+          <mat-icon class="mat-icon material-icons">{{icon.userAccount}}</mat-icon>
+          <span>{{MESSAGE.OCR_SIDEBAR_PROFILE}}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button routerLink="/" mat-menu-item style="width: 200px;">
+          <mat-icon class="mat-icon material-icons">{{icon.exit}}</mat-icon>
+          <span>{{MESSAGE.OCR_SIDEBAR_LOGOUT}}</span>
+        </button>
+      </mat-menu>
+      <!-- END LOGOUT -->
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

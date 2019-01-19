@@ -1,0 +1,30 @@
+<div id="login" class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-5 login-top">
+      <mat-card>
+        <img class="rounded center" src='./../../assets/img/scanner.png' />
+        <h4 class="logo-title">{{MESSAGE.OCR_SIGNUP_TITLE}}</h4>
+        <form class="login-form-container">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Enter Name">
+            <span class="material-icons" matPrefix>{{Icons.person}} &nbsp;</span>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="email" placeholder="Enter Email">
+            <span class="material-icons" matPrefix>{{Icons.mailIcon}} &nbsp;</span>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Enter Mobile Number">
+            <span class="material-icons" matPrefix>{{Icons.phone}} &nbsp;</span>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Enter Password">
+            <span class="material-icons" matPrefix>{{Icons.lockOpen}} &nbsp;</span>
+          </mat-form-field>
+          <button class="login-mt-10" mat-flat-button color="primary" routerLink='/login'>{{MESSAGE.OCR_SIGN_UP_BUTTON}}</button>
+          <button mat-button class="text-center login-mt-10" routerLink="/login">{{MESSAGE.OCR_LOGIN_LINK}}</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
